@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 
     flex1: {
          flex: 1,
-          backgroundColor:"red"
+          backgroundColor:"yellow"
     },
     flex2: {
         flex: 3,
