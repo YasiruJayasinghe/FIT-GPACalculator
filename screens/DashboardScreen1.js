@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, ImageBackground, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, ImageBackground, Alert, ScrollView } from 'react-native';
 import img from "../assets/faculty.png";
 import { Picker } from '@react-native-picker/picker';
 
 
 
 
-const DashboardScreen1 = () => {
+const DashboardScreen1 = ({ navigation }) => {
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
 
@@ -49,13 +49,14 @@ const DashboardScreen1 = () => {
       </View>
 
       <View style={styles.flex2}>
+        <ScrollView >
         <ImageBackground
            source={img}
           resizeMode='cover'
           style={styles.bgImage}
         >
           <View style={styles.overlay} />
-
+      <View style={styles.scrollContainer}>
           <Picker
         selectedValue={selectedLanguage}
         onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
@@ -78,7 +79,57 @@ const DashboardScreen1 = () => {
         <Picker.Item label="Batch 20" value="B03" />
         <Picker.Item label="Batch 19" value="B04" />
       </Picker>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 1</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 2</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 3</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 4</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 5</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 6</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 7</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={() => navigation.navigate("SemModuleScreen")}
+        style={styles.SemButton}>
+        <Text style={styles.t4}>Semester 8</Text>
+      </TouchableOpacity>
+      </View>
         </ImageBackground>
+        </ScrollView>
       </View>
 
       <View style={styles.flex3}>
@@ -143,7 +194,19 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginTop:10,
     marginHorizontal:30,
+  },
+  SemButton: {
+    backgroundColor: "white",
+    borderRadius: 30,
+    paddingVertical: 10,
+    marginHorizontal:30,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  scrollContainer:{
+   marginBottom:10,
   }
+  
 });
 
 export default DashboardScreen1;

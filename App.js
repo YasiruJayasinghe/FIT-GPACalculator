@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import WelcomScreen from './screens/WelcomScreen';
-import DashboardScreen from './screens/DashboardScreen';
 import DashboardScreen1 from './screens/DashboardScreen1';
+import SemModuleScreen from './screens/SemModuleScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,8 +13,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="WelcomScreen" component={WelcomScreen} />
-        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
         <Stack.Screen name="DashboardScreen1" component={DashboardScreen1} />
+        <Stack.Screen name='SemModuleScreen' component={SemModuleScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
