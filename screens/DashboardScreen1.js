@@ -1,46 +1,25 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView, StatusBar, ImageBackground, Alert, ScrollView } from 'react-native';
 import img from "../assets/faculty.png";
 import { Picker } from '@react-native-picker/picker';
 
-
-
-
 const DashboardScreen1 = ({ navigation }) => {
+  const [selectedDegreeBatch, setSelectedDegreeBatch] = useState({ degree: "default", batch: "default"});
+  console.log(selectedDegreeBatch);
+  const clearResult = () => {
+      setSelectedDegreeBatch({ ...selectedDegreeBatch, degree: "default", batch: "default" })
+  }
 
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-
-  const showAlert = () =>
-  Alert.alert(
-    'Alert Title',
-    'My Alert Msg',
-    [
-      {
-        text: 'Cancel',
-        onPress: () => Alert.alert('Cancel Pressed'),
-        style: 'cancel',
-      },
-    ],
-    {
-      cancelable: true,
-      onDismiss: () =>
-        Alert.alert(
-          'This alert was dismissed by tapping outside of the alert dialog.',
-        ),
-    },
-  );
-
-  
-    const handleClearResults = () => {
-        Alert.alert(
-          'Confirmation',
-          "Are you certain you want to clear all results?",
-          [  
-            { text: 'Yes', onPress: () => console.log('Yes Pressed') },  
-            { text: 'No', onPress: () => console.log('No Pressed') },  
-          ]
-        );
-      };
+  const handleClearResults = () => {
+    Alert.alert(
+      'Confirmation',
+      "Are you certain you want to clear all results?",
+      [
+        { text: 'Yes', onPress: () => clearResult() },
+        { text: 'No', onPress: () => console.log('No Pressed') },
+      ]
+    );
+  };
     
   return (
     <SafeAreaView style={styles.container}>
@@ -55,79 +34,79 @@ const DashboardScreen1 = ({ navigation }) => {
           resizeMode='cover'
           style={styles.bgImage}
         >
-          <View style={styles.overlay} />
+            <View style={styles.overlay} />
       <View style={styles.scrollContainer}>
           <Picker
-        selectedValue={selectedLanguage}
-        onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
-        style={styles.Picker}
-      >
-        <Picker.Item label="Select the Degree Program" enabled={false} />
-        <Picker.Item label="Artificial Inteligent" value="D01" />
-        <Picker.Item label="Information Technology" value="D02" />
-        <Picker.Item label="Information Technology & Management" value="D03" />
-      </Picker>
+            selectedValue={selectedDegreeBatch.degree}
+            onValueChange={(itemValue) => setSelectedDegreeBatch({ ...selectedDegreeBatch, degree: itemValue })}
+            style={styles.Picker}
+          >
+              <Picker.Item label="Select the Degree Program" value="default" enabled={false} />
+              <Picker.Item label="Artificial Intelligent" value="D01" />
+              <Picker.Item label="Information Technology" value="D02" />
+              <Picker.Item label="Information Technology & Management" value="D03" />
+          </Picker>
 
-      <Picker
-        selectedValue={selectedLanguage}
-        onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
-        style={styles.Picker}
-      >
-        <Picker.Item label="Select your batch" enabled={false} />
-        <Picker.Item label="Batch 22" value="B01" />
-        <Picker.Item label="Batch 21" value="B02" />
-        <Picker.Item label="Batch 20" value="B03" />
-        <Picker.Item label="Batch 19" value="B04" />
-      </Picker>
+          <Picker
+            selectedValue={selectedDegreeBatch.batch}
+            onValueChange={(itemValue) => setSelectedDegreeBatch({ ...selectedDegreeBatch, batch: itemValue })}
+            style={styles.Picker}
+            >
+            <Picker.Item label="Select your batch" value="default" enabled={false} />
+            <Picker.Item label="Batch 22" value="B01" />
+            <Picker.Item label="Batch 21" value="B02" />
+            <Picker.Item label="Batch 20" value="B03" />
+            <Picker.Item label="Batch 19" value="B04" />
+          </Picker>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 1</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 1</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 2</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 2</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 3</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 3</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 4</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 4</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 5</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 5</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 6</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 6</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 7</Text>
-      </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 7</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity 
-        onPress={() => navigation.navigate("SemModuleScreen")}
-        style={styles.SemButton}>
-        <Text style={styles.t4}>Semester 8</Text>
-      </TouchableOpacity>
-      </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SemModuleScreen")}
+            style={styles.SemButton}>
+            <Text style={styles.t4}>Semester 8</Text>
+          </TouchableOpacity>
+        </View>
         </ImageBackground>
         </ScrollView>
       </View>
