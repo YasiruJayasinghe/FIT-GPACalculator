@@ -14,9 +14,9 @@ const WelcomeScreen = ({ navigation }) => {
       </View>
       <Text style={styles.t1}>Welcome!</Text>
       <Text style={styles.t2}>FIT</Text>
-      <Text style={styles.t3}>GPA Calculator</Text>
+      <Text style={styles.t3}>GPA Mate</Text>
       <TouchableOpacity 
-        onPress={() => navigation.navigate("DashboardScreen1")}
+        onPress={() => navigation.navigate("HomeScreen")}
         style={styles.button}
       >
         <Text style={styles.t4}>Get Started</Text>
